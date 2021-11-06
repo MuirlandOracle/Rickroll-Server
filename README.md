@@ -8,3 +8,4 @@ Rickroll video made using [Video-To-Ascii](https://github.com/joelibaceta/video-
 
 ## To-Do:
  - [ ] Add Metrics
+ - [ ] Find a better way to serve the rickroll rather than the huge array import...
