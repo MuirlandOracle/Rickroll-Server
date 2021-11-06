@@ -1,4 +1,4 @@
-import time, re
+import time, re, pickle, bz2
 
 
 with open("rickroll.ascii") as h:
@@ -16,5 +16,5 @@ for i in data:
 
 
 del output[0][0]
-with open("rickroll.py", "w") as h:
-    h.write(f"roll = {str(output)}")
+with bz2.BZ2File("rickroll.pbz2", "wb") as h:
+    pickle.dump(output, h)

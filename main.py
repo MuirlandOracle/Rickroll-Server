@@ -1,10 +1,14 @@
 #!/usr/bin/env python
-from rickroll import roll
 import time
+import pickle
 import socket
 import threading
 import sys
 import signal
+import bz2
+
+with bz2.BZ2File("rickroll.pbz2", "rb") as h:
+    roll = pickle.load(h)
 
 
 listensock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -23,7 +27,7 @@ def dataRecv(client, addr):
                     return
     client.close()
 
-
+print("Ready")
 while True:
     try:
         client, addr = listensock.accept()
