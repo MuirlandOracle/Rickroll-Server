@@ -10,4 +10,4 @@ Rickroll video made using [Video-To-Ascii](https://github.com/joelibaceta/video-
  - [ ] Add Metrics
  - [x] Find a better way to serve the rickroll rather than the huge array import...
  - [ ] Try to improve video quality
- - [ ] Add a service file / Install script
+ - [x] Add a service file / Install script
