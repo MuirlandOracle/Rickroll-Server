@@ -19,11 +19,6 @@ get_script_dir () {
 }
 get_script_dir;
 
-if [ ! $(getent passwd rickroll) ]; then 
-    useradd -s /usr/sbin/nologin -M -d $DIR rickroll
-fi
-
-setcap 'cap_net_bind_service=+ep' $DIR/main.py
 
 echo "[+] Creating the service unit file"
 cat << EOF > /etc/systemd/system/rickroll.service
@@ -33,8 +28,8 @@ After=network.target
 
 [Service]
 Type=simple
-User=rickroll
-Group=rickroll
+User=root
+Group=root
 WorkingDirectory=$DIR
 ExecStart=$DIR/main.py
 [Install]
