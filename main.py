@@ -10,6 +10,7 @@ import os
 import pwd
 import grp
 
+
 with bz2.BZ2File("rickroll.pbz2", "rb") as h:
     roll = pickle.load(h)
 
@@ -29,6 +30,7 @@ except OSError:
 
 
 def dataRecv(client, addr):
+    print(f"[+] Connection from {addr[0]}")
     for i in roll:
         if type(i) == float:
             time.sleep(i)
