@@ -20,6 +20,7 @@ listensock.bind(("0.0.0.0", 23))
 listensock.listen()
 
 #Try to drop privileges having bound to the port
+#0day was here
 try:
     os.setgroups([])
     os.setgid(grp.getgrnam("nogroup").gr_gid)
