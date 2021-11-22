@@ -31,7 +31,7 @@ except OSError:
 
 
 def dataRecv(client, addr):
-    print(f"[+] Connection from {addr[0]}")
+    print(f"[+] Connection from {addr[0]}", flush=True)
     for i in roll:
         if type(i) == float:
             time.sleep(i)
