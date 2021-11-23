@@ -28,11 +28,18 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: muirlandoracle/rickroll-server
+          tags: |
+              type=ref,event=branch
+              type=sha
+              type=sha,prefix={{branch}}-
+              type=sha,format=long
+              type=sha,format=long,prefix={{branch}}-
+              type=raw,value=latest
 
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: latest
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
