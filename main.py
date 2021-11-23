@@ -52,6 +52,5 @@ while True:
         sys.exit()
     except Exception:
         continue
-    thread = threading.Thread(target=lambda:dataRecv(client, addr))
-    thread.setDaemon(True)
+    thread = threading.Thread(target=lambda:dataRecv(client, addr), daemon=True)
     thread.start()
